@@ -29,7 +29,7 @@ public class UserController {
         model.addAttribute("roleList", roleService.listAllRoles());
         model.addAttribute("userList", userService.listAllUsers());
 
-        return "user/create";
+        return "/user/create";
     }
 
     @PostMapping("/create")
@@ -46,7 +46,7 @@ public class UserController {
         model.addAttribute("user", userService.findByUserName(username));
         model.addAttribute("userList", userService.listAllUsers());
         model.addAttribute("roleList", roleService.listAllRoles());
-        return "user/update";
+        return "/user/update";
     }
 
     @PostMapping("/update/{username}")

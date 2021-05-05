@@ -34,7 +34,7 @@ public class TaskController {
         model.addAttribute("projects", projectService.listAllNonCompletedProjects());
         model.addAttribute("employees",userService.listAllByRole("employee"));
         model.addAttribute("tasks", taskService.listAllTasks());
-        return "task/create";
+        return "/task/create";
     }
 
     @PostMapping("/create")
@@ -55,7 +55,7 @@ public class TaskController {
         model.addAttribute("projects", projectService.listAllNonCompletedProjects());
         model.addAttribute("employees", userService.listAllByRole("employee"));
         model.addAttribute("tasks", taskService.listAllTasks());
-        return "task/update";
+        return "/task/update";
     }
 
     @PostMapping("/update/{id}")
@@ -69,7 +69,7 @@ public class TaskController {
         List<TaskDTO> tasks= taskService.listAllTaskByStatusIsNot(Status.COMPLETE);
         model.addAttribute("tasks", tasks);
 
-        return "task/employee-tasks";
+        return "/task/employee-tasks";
     }
 
     @GetMapping("/employee/edit/{id}")
@@ -85,7 +85,7 @@ public class TaskController {
         model.addAttribute("tasks",tasks);
         model.addAttribute("statuses", Status.values());
 
-        return "task/employee-update";
+        return "/task/employee-update";
     }
 
     @PostMapping("/employee/update/{id}")
@@ -100,6 +100,6 @@ public class TaskController {
         List<TaskDTO> tasks=taskService.listAllTaskByStatus(Status.COMPLETE);
         model.addAttribute("tasks", tasks);
 
-        return "task/employee-archive";
+        return "/task/employee-archive";
     }
 }
